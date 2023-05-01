@@ -8,19 +8,30 @@
     <title>NMS Explorer's Journal</title>
   </head>
   <body>
+    <header class="header">
+      <h1>
+        NMS Exploration Journal
+      </h1>
+    </header>
     <div class="container">
+      <div class="modal">
+        <p class="confirm-msg">Address Stored!</p>
+        <button class="ok">OK</button>
+      </div>
       <div class="portal-container">
-        <h1>Portal Address</h1>
         <div class="og-glyphs-container">
           <div class="row-1"></div>
           <div class="row-2"></div>
         </div>
-        <div class="selected-glyphs-container">
-          <!-- <div class="empty-glyph"></div>
-          <div class="empty-glyph"></div>
-          <div class="empty-glyph"></div> -->
+        <div class="chosen-glyphs-container"></div>
+        <div class="btn-container">
+
+          <button type="submit" class="add-btn">Add</button>
+          <button class="display-btn">Explored Destinations</button>
         </div>
-        <button class="add-btn">Add</button>
+      </div>
+      <div class="stored-addresses">
+        <h2 class="stored-h2">10 latest explorations</h2>
       </div>
     </div>
     <script src="script.js"></script>

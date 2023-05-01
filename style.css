@@ -8,6 +8,50 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.5rem;
+  width: 100vw;
+}
+.modal {
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background: #b1dbc87d;
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  z-index: 5;
+}
+.confirm-msg {
+  font-size: 2rem;
+  color: #fff;
+}
+.ok {
+  width: 50%;
+}
+nav {
+  display: flex;
+  gap: 2rem;
+  padding-inline: 4rem;
+}
+.nav-list {
+  list-style: none;
+}
+a {
+  font-size: 1.75rem;
+  color: #b1dbc8;
+  text-decoration: none;
+}
+.container {
+  display: flex;
+  position: relative;
+}
 .portal-container {
   width: 50vw;
   height: auto;
@@ -39,10 +83,12 @@ h1 {
   margin-block-end: 3rem;
 }
 img {
-  cursor: pointer;
   width: 100px;
   height: auto;
   rotate: 18deg;
+}
+.glyph-img {
+  cursor: pointer;
 }
 @keyframes appear {
   from {
@@ -56,7 +102,7 @@ img {
     filter: drop-shadow(0px 0px 0rem #e892ef);
   }
 }
-.selected-glyphs-container {
+.chosen-glyphs-container {
   position: relative;
   display: flex;
   align-items: center;
@@ -66,7 +112,7 @@ img {
   padding-inline: 1.2rem;
   box-shadow: 0 0 .75rem #777777b1;
 }
-.selected-glyphs-container::after {
+.chosen-glyphs-container::after {
   content: '';
   display: var(--none, none);
   position: absolute;
@@ -78,6 +124,15 @@ img {
   animation: appear 2s ease infinite;
 }
 .selected-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding-block: 1rem;
+  /* border: 1px solid red; */
+  position: relative;
+  animation: appear .5s ease;
+}
+.chosen-glyphs {
   align-items: center;
   display: flex;
   justify-content: space-evenly;
@@ -108,8 +163,26 @@ img {
   position: relative;
   display: block;
 }
-.add-btn {
+button {
   padding: 1rem 2rem;
+}
+.stored-addresses {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  height: 35vh;
+  padding-block-start: 2rem;
+  /* color: #fff; */
+}
+.stored-h2 {
+  display: none;
+  color: #fff;
+  padding-block-end: 2rem;
+}
+.explored-img {
+  width: 100px;
+  height: auto;
+  rotate: 18deg;
 }
 /* .selected::before {
   content: attr(src);
@@ -119,3 +192,4 @@ img {
   z-index: -1;
   animation: appear 5s ease-in-out infinite;
 } */
+/* EXPLORED PORTALS */
