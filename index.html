@@ -15,106 +15,153 @@
       <p class="confirm-msg">Address Stored!</p>
       <button class="ok">OK</button>
     </div>
-    <div class="container">
-        <form action="" class="create-entry">
-          <div class="portal-container">
-            <div class="og-glyphs-container">
-              <div class="row-1"></div>
-              <div class="row-2"></div>
-            </div>
-            <div class="chosen-glyphs-container"></div>
+    <div class="create-container">
+      <p class="new-entry">Add New Entry</p>
+      <p class="plus-icon">+</p>
+    </div>
+    <div class="journal-container">
+      <form action="" class="create-entry">
+        <button class="close-form">Cancel</button>
+        <div class="portal-container">
+          <div class="og-glyphs-container">
+            <div class="row-1"></div>
+            <div class="row-2"></div>
           </div>
-          <div class="input-container">
-            <div class="system-container">
-              <div class="system-name">
-                <p class="input-header">System Name</p>
-                <input
-                  type="text"
-                  id="system-name"
-                  class="input-title"
-                  name="system-name"
-                />
-              </div>
-              <div class="classification">
-                <p class="input-header">System Classification</p>
-                <select name="system-classification" id="system-classification">
-                  <option value="yellow">Yellow Stellar System</option>
-                  <option value="red">Red Stellar System</option>
-                  <option value="green">Green Stellar System</option>
-                  <option value="blue">Blue Stellar System</option>
-                </select>
-              </div>
-              <div class="star-container">
-                <p class="input-header">Number of Stars</p>
-                <select name="star-count" id="stars">
-                  <option value="single">Single-Star</option>
-                  <option value="binary">Binary</option>
-                  <option value="ternary">Ternary</option>
-                </select>
+          <div class="chosen-glyphs-container"></div>
+        </div>
+        <div class="input-container">
+          <div class="system-container">
+            <div class="system-name">
+              <p class="input-header">System Name</p>
+              <input
+                type="text"
+                id="system-name"
+                class="input-title"
+                name="system"
+              />
+            </div>
+            <div class="classification">
+              <p class="input-header">System Classification</p>
+              <select name="classification" id="system-classification">
+                <option value="none" selected disabled hidden>
+                  Select Classification
+                </option>
+                <option value="yellow">Yellow Stellar System</option>
+                <option value="red">Red Stellar System</option>
+                <option value="green">Green Stellar System</option>
+                <option value="blue">Blue Stellar System</option>
+              </select>
+            </div>
+            <div class="star-container">
+              <p class="input-header">Number of Stars</p>
+              <select name="stars" id="stars">
+                <option value="none" selected disabled hidden>
+                  Select Stars
+                </option>
+                <option value="single">Single-Star</option>
+                <option value="binary">Binary</option>
+                <option value="ternary">Ternary</option>
+              </select>
+            </div>
+          </div>
+          <div class="selections-container">
+            <div class="type-container">
+              <label for="economy-type">Economy Type</label>
+              <select name="economy" id="economy-type">
+                <option value="trading">Trading</option>
+                <option value="advanced Materials">Advanced Materials</option>
+                <option value="none" selected disabled hidden>
+                  Select Type
+                </option>
+                <option value="scientific">Scientific</option>
+                <option value="mining">Mining</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="technology">Technology</option>
+                <option value="power generation">Power Generation</option>
+              </select>
+            </div>
+            <div class="strength-container">
+              <p class="input-header">Economy Strength</p>
+              <div class="strength-input-container">
+                <div class="strength">
+                  <input
+                    type="radio"
+                    name="strength"
+                    class="economy-strength"
+                    value="weak"
+                  />
+                  <label for="weak">Weak</label>
+                </div>
+                <div class="strength">
+                  <input
+                    type="radio"
+                    name="strength"
+                    class="economy-strength"
+                    value="average"
+                  />
+                  <label for="average">Average</label>
+                </div>
+                <div class="strength">
+                  <input
+                    type="radio"
+                    name="strength"
+                    class="economy-strength"
+                    value="strong"
+                  />
+                  <label for="strong">Strong</label>
+                </div>
               </div>
             </div>
-            <div class="selections-container">
-                <div class="type-container">
-                  <label for="economy-type">Economy Type</label>
-                  <select name="economy-type" id="economy-type">
-                    <option value="trading">Trading</option>
-                    <option value="advanced Materials">
-                      Advanced Materials
-                    </option>
-                    <option value="scientific">Scientific</option>
-                    <option value="mining">Mining</option>
-                    <option value="manufacturing">Manufacturing</option>
-                    <option value="technology">Technology</option>
-                    <option value="power generation">Power Generation</option>
-                  </select>
+            <div class="species-container">
+              <p class="input-header">Dominant Species</p>
+              <div class="race-container">
+                <div class="race">
+                  <input type="radio" name="race" id="race-input" value="gek" />
+                  <label for="race">Gek</label>
                 </div>
-                <div class="strength-container">
-                  <p class="input-header">Economy Strength</p>
-                  <div class="strength-input-container">
-                    <div class="strength">
-                      <input
-                        type="radio"
-                        name="weak"
-                        class="economy-strength"
-                        value="weak"
-                      />
-                      <label for="weak">Weak</label>
-                    </div>
-                    <div class="strength">
-                      <input
-                        type="radio"
-                        name="average"
-                        class="economy-strength"
-                        value="average"
-                      />
-                      <label for="average">Average</label>
-                    </div>
-                    <div class="strength">
-                      <input
-                        type="radio"
-                        name="strong"
-                        class="economy-strength"
-                        value="strong"
-                      />
-                      <label for="strong">Strong</label>
-                    </div>
-                  </div>
+                <div class="race">
+                  <input
+                    type="radio"
+                    name="race"
+                    id="race-input"
+                    value="korvax"
+                  />
+                  <label for="race">Korvax</label>
                 </div>
-                <div class="species-container">
-                  <p class="input-header">Dominant Species</p>
-                  <select name="dominant-species" class="species-input">
+                <div class="race">
+                  \
+                  <input
+                    type="radio"
+                    name="race"
+                    id="race-input"
+                    value="Vy'keen"
+                  />
+                  <label for="race">Vy'keen</label>
+                </div>
+              </div>
+              <!-- <select name="dominant-species" class="species-input">
+                    <option value="none" selected disabled hidden>Select Species</option>
                     <option value="gek">Gek</option>
                     <option value="korvax">Korvax</option>
                     <option value="vy'keen">Vy'keen</option>
-                  </select>
-                </div>
-            </div>
-            <div class="btn-container">
-              <button type="submit" class="add-btn">Submit Journal Entry</button>
-              <!-- <button class="display-btn">Explored Destinations</button> -->
+                  </select> -->
             </div>
           </div>
-        </form>
+          <div class="notes-container">
+            <p class="input-header">Notes</p>
+            <textarea
+              name="notes"
+              id="journal-notes"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="btn-container">
+            <button type="submit" class="add-btn">Submit Journal Entry</button>
+            <!-- <button class="display-btn">Explored Destinations</button> -->
+          </div>
+        </div>
+      </form>
       <!-- </div> -->
     </div>
 
