@@ -12,8 +12,8 @@ const selectClassification = document.querySelector("#system-classification");
 const form = document.querySelector(".create-entry");
 const starCount = document.querySelector("#stars");
 const economyType = document.querySelector("#economy-type");
-const economyStrength = document.querySelectorAll("input[type=radio]");
-const dominantSpecies = document.querySelector(".species-input");
+const economyStrength = document.querySelectorAll("input[name=strength]");
+const dominantSpecies = document.querySelectorAll("input[name=race]");
 const container = document.querySelector(".journal-container");
 const plus = document.querySelector(".plus-icon");
 const notes = document.querySelector("#journal-notes");
@@ -106,42 +106,32 @@ function getStoredEntries() {
 //     }
 //   });
 // }
-//~ /////////////////////////////////////
-//!         SHOW CONFIRM MODAL         \\
-//~ /////////////////////////////////////
-// function showModal() {
-//   if (handleSubmit) {
-//     modal.style.display = 'flex'
-//   }
-// }
 
 //~ /////////////////////////////////////
 //!         FORM INPUT FIELDS         \\
 //~ /////////////////////////////////////
 
-function getEconomyStrength() {
+function getStrengthValue() {
   for (let i = 0; i < economyStrength.length; i++) {
     return economyStrength[i].value;
   }
+}
+
+function getSpeciesValue() {
+   for (let i = 0; i < dominantSpecies.length; i++) {
+     return dominantSpecies[i].value;
+   }
 }
 
 //~ /////////////////////////////////////
 //!         CLEARING FIELDS         \\
 //~ /////////////////////////////////////
 function clearUI() {
-  // const strength = getEconomyStrength();
   if (handleSubmit) {
     const selected = document.querySelectorAll(".selected");
     selected.forEach((img) => img.remove());
     chosenGlyphContainer.style.setProperty("--none", "none");
     form.reset();
-    // systemName.value = "";
-    // selectClassification.value = "";
-    // starCount.value = "";
-    // economyType.value = "";
-    // strength = "";
-    // dominantSpecies.value = "";
-    // notes.value = '';
   }
 }
 
@@ -150,7 +140,8 @@ function clearUI() {
 //~ /////////////////////////////////////
 function handleSubmit(e) {
   e.preventDefault();
-  const strength = getEconomyStrength();
+  const strength = getStrengthValue();
+  const species = getSpeciesValue();
 
   const newEntry = {
     systemName: systemName.value,
@@ -159,21 +150,21 @@ function handleSubmit(e) {
     stars: starCount.value,
     economy: economyType.value,
     strength: strength,
-    species: dominantSpecies.value,
+    species: species,
     notes: notes.value,
   };
 
   const storedEntries = getStoredEntries();
 
-  if (!systemName.value || !strength || portalAddress.length !== 12) {
+  if (!systemName.value || portalAddress.length !== 12) {
     alert("Please provide all required information.");
   } else {
     storedEntries.push(newEntry);
     localStorage.setItem("journalEntries", JSON.stringify(storedEntries));
     modal.style.display = "flex";
     container.style.display = "none";
+    clearUI();
   }
-  clearUI();
 }
 
 //~ /////////////////////////////////////

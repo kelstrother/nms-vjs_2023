@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --lightWeight: 200;
+  --headingWeight: 700;
+  --heavyWeight: 900;
+  --main: "Kanit";
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,6 +15,7 @@ body {
   background-image: url("./assets/rings_alone.JPG");
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: var(--main);
 }
 .header {
   display: flex;
@@ -17,6 +26,7 @@ body {
 }
 h1 {
   color: #fff;
+  font-size: 4rem;
 }
 .create-container {
   display: flex;
@@ -30,7 +40,7 @@ h1 {
 .plus-icon {
   color: #fff;
   font-size: 3rem;
-  font-style: italic;
+  /* font-style: italic; */
   cursor: pointer;
   animation: breathe 2s ease infinite;
 }
@@ -68,9 +78,10 @@ h1 {
 }
 .ok {
   width: 50%;
+  font-family: var(--main);
 }
 .journal-container {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -85,6 +96,7 @@ h1 {
   bottom: 15px;
   left: 15px;
   cursor: pointer;
+  font-family: var(--main);
 }
 .create-entry {
   position: relative;
@@ -176,6 +188,7 @@ img {
 }
 button {
   padding: 1rem 2rem;
+  font-family: 'Kanit';
 }
 .stored-addresses {
   display: none;
@@ -204,6 +217,7 @@ button {
   flex-direction: column;
   gap: 5rem;
   justify-content: center;
+  padding-inline: 1rem;
 }
 .system-container {
   display: flex;
@@ -231,17 +245,22 @@ input[type=text] {
   padding-inline: 10px;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
+  font-family: var(--main);
 }
 input[type=radio] {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.4);
 }
+label {
+  font-size: 1.5rem;
+}
 select {
   padding-block: .5rem;
   padding-inline: 10px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
+  font-family: var(--main);
 }
 .selections-container {
   display: flex;
@@ -269,6 +288,8 @@ select {
 }
 .input-header {
   font-size: 1.5rem;
+  font-weight: var(--headingWeight);
+  letter-spacing: 1px;
 }
 .strength {
   font-size: 1.5rem;
@@ -287,6 +308,7 @@ select {
 .race {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 #race-input {
   width: 20px;
@@ -297,11 +319,6 @@ select {
   flex-direction: column;
   gap: 15px;
 }
-/* .species-input {
-  font-size: 1rem;
-  padding-block: .5rem;
-  width: 175px;
-} */
 .notes-container {
   display: flex;
   flex-direction: column;
@@ -313,6 +330,9 @@ select {
   color: #fff;
   border: 0;
   border-bottom: 10px;
+  font-size: 1.25rem;
+  font-family: var(--main);
+  padding: 10px;
 }
 .btn-container {
   display: flex;
@@ -324,8 +344,10 @@ select {
   color: #fff;
   border-radius: 10px;
   border: 0;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   width: 80%;
+  font-weight: var(--heavyWeight);
+  letter-spacing: 1px;
   background: #00000089;
 }
 
