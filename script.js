@@ -1,7 +1,6 @@
 const ogGlyphsContainer = document.querySelector(".og-glyphs-container");
 const row1 = document.querySelector(".row-1");
 const row2 = document.querySelector(".row-2");
-// const images = document.querySelectorAll("img");
 const chosenGlyphContainer = document.querySelector(".chosen-glyphs-container");
 const addBtn = document.querySelector(".add-btn");
 const storedAddresses = document.querySelector(".stored-addresses");

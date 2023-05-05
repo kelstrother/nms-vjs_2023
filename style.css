@@ -4,7 +4,7 @@
   padding: 0;
 }
 body {
-  background-image: url('./assets/rings_alone.JPG');
+  background-image: url("./assets/rings_alone.JPG");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -14,6 +14,9 @@ body {
   align-items: center;
   padding: 1.5rem;
   width: 100vw;
+}
+h1 {
+  color: #fff;
 }
 .modal {
   display: none;
@@ -35,52 +38,40 @@ body {
 .ok {
   width: 50%;
 }
-nav {
-  display: flex;
-  gap: 2rem;
-  padding-inline: 4rem;
-}
-.nav-list {
-  list-style: none;
-}
-a {
-  font-size: 1.75rem;
-  color: #b1dbc8;
-  text-decoration: none;
-}
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
+.create-entry {
+  background: rgba(0, 0, 0, 0.3);
+  padding-block: 5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  justify-content: space-between;
+  color: #fff;
+}
 .portal-container {
-  width: 50vw;
+  flex: 1.5;
+  gap: 5rem;
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  margin-inline-start: 3rem;
-  margin-block-start: 3rem;
-}
-h1 {
-  color: #fff;
 }
 .og-glyphs-container {
-  padding-block: 5rem;
-  width: 100%;
+  gap: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
-.og-glyphs-container .glyph {
-  margin-inline: 1rem;
-}
-.row-1, .row-2 {
+.row-1,
+.row-2 {
   display: flex;
-}
-.row-1 {
-  margin-block-end: 3rem;
 }
 img {
   width: 100px;
@@ -107,58 +98,35 @@ img {
   display: flex;
   align-items: center;
   gap: 1.25%;
-  width: 100%;
+  width: 80%;
   height: 155px;
   padding-inline: 1.2rem;
-  box-shadow: 0 0 .75rem #777777b1;
+  box-shadow: 0 0 0.75rem #777777b1;
 }
 .chosen-glyphs-container::after {
-  content: '';
+  content: "";
   display: var(--none, none);
   position: absolute;
   inset: 0;
   border: 4px solid #cfffea;
   background: rgba(0, 0, 0, 0.3);
-  /* filter: blur(20px); */
   z-index: -1;
   animation: appear 2s ease infinite;
 }
-.selected-row {
-  align-items: center;
-  display: flex;
-  justify-content: space-evenly;
-  padding-block: 1rem;
-  /* border: 1px solid red; */
-  position: relative;
-  animation: appear .5s ease;
-}
-.chosen-glyphs {
-  align-items: center;
-  display: flex;
-  justify-content: space-evenly;
-  padding-block: 1rem;
-  /* border: 1px solid red; */
-  position: relative;
-  animation: appear .5s ease;
-}
-/* .selected-row:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  animation: emptyGlow 1s ease-in-out infinite;
-} */
 @keyframes emptyGlow {
   from {
     background: rgba(0, 0, 0, 1);
   }
   50% {
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, 0.2);
   }
   to {
     background: rgba(0, 0, 0, 1);
   }
 }
 .selected {
+  width: 80px;
+  height: auto;
   animation: appear 5s ease infinite;
   position: relative;
   display: block;
@@ -184,12 +152,112 @@ button {
   height: auto;
   rotate: 18deg;
 }
-/* .selected::before {
-  content: attr(src);
-  position: absolute;
-  inset: 0;
-  display: block;
-  z-index: -1;
-  animation: appear 5s ease-in-out infinite;
+/* ~ //////////////////////////// */
+/* !  //  INPUT CONTAINER        */
+/* ~ //////////////////////////// */
+.input-container {
+  display: flex;
+  flex: 1.5;
+  flex-direction: column;
+  gap: 10rem;
+  justify-content: center;
+}
+.system-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.system-name {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.classification {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 15px;
+}
+.star-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+input[type=text] {
+  padding-block: .5rem;
+}
+input[type=radio] {
+  cursor: pointer;
+}
+select {
+  padding-block: .5rem;
+  font-size: 1rem;
+}
+.selections-container {
+  display: flex;
+  align-items: flex-start;
+  margin-block: 5rem;
+  gap: 50px;
+}
+.type-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 1.5rem;
+}
+.strength-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+.strength-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.input-header {
+  font-size: 1.5rem;
+}
+.strength {
+  font-size: 1.5rem;
+  display: flex;
+  gap: 15px;
+}
+.economy-strength {
+  width: 20px;
+}
+.species-container {
+  flex: 1;
+  display: flex;
+  gap: 25px;
+}
+.species-input {
+  font-size: 1rem;
+  padding-block: .5rem;
+  width: 120px;
+}
+.btn-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.add-btn {
+  cursor: pointer;
+  color: #fff;
+  border-radius: 10px;
+  border: 0;
+  font-size: 1.5rem;
+  width: 80%;
+  background: #00000089;
+}
+
+/* .chosen-glyphs {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding-block: 1rem;
+  position: relative;
+  animation: appear 0.5s ease;
 } */
-/* EXPLORED PORTALS */
