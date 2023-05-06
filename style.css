@@ -30,31 +30,37 @@ h1 {
 }
 .create-container {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 .new-entry {
   color: #fff;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-inline-start: 5rem;
+  cursor: pointer;
 }
 .plus-icon {
   color: #fff;
-  font-size: 3rem;
-  /* font-style: italic; */
+  font-size: 2rem;
   cursor: pointer;
-  animation: breathe 2s ease infinite;
+  animation: breathe .5s ease infinite;
+}
+.see-entries {
+  color: #fff;
+  font-size: 2rem;
+  margin-inline-start: 5rem;
+  cursor: pointer;
 }
 @keyframes breathe {
   from {
-    color: #fff;
+    /* color: #fff; */
     scale: 1;
   }
   50% {
-    color: #b1dbc8;
-    scale: 1.4;
+    /* color: #b1dbc8; */
+    scale: 1.2;
   }
   to {
-    color: #fff;
+    /* color: #fff; */
     scale: 1;
   }
 }
@@ -153,12 +159,21 @@ img {
   display: flex;
   align-items: center;
   gap: 1.25%;
-  width: 80%;
+  width: 90%;
   height: 155px;
   padding-inline: 1.2rem;
   box-shadow: 0 0 0.75rem #777777b1;
 }
-.chosen-glyphs-container::after {
+.chosen-inside {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 4px solid #cfffea;
+  animation: appear 2s ease infinite;
+}
+.chosen-glyphs-container::before {
   content: "";
   display: var(--none, none);
   position: absolute;
@@ -190,18 +205,38 @@ button {
   padding: 1rem 2rem;
   font-family: 'Kanit';
 }
-.stored-addresses {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  height: 35vh;
-  padding-block-start: 2rem;
-  /* color: #fff; */
+.storage-container {
+  display: flex;
+  width: 100vw;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-block: 5rem;
+  /* border: 1px solid red; */
 }
-.stored-h2 {
-  display: none;
+.stored-addresses {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 2rem;
+  width: max-content;
+  gap: 2rem;
+}
+.stored-entries {
+  display: flex;
+  flex-direction: column;
   color: #fff;
-  padding-block-end: 2rem;
+  border: 1px solid #cfffea;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.stored-system-address {
+  display: flex;
+  /* align-items: center; */
+}
+.stored-glyph {
+  width: 50px;
+  height: auto;
+  display: block;
 }
 .explored-img {
   width: 100px;

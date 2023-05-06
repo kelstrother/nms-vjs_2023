@@ -15,6 +15,8 @@ const economyType = document.querySelector("#economy-type");
 const economyStrength = document.querySelectorAll("input[name=strength]");
 const dominantSpecies = document.querySelectorAll("input[name=race]");
 const container = document.querySelector(".journal-container");
+const addNew = document.querySelector(".create-container");
+const newChildren = addNew.querySelectorAll("p");
 const plus = document.querySelector(".plus-icon");
 const notes = document.querySelector("#journal-notes");
 
@@ -53,19 +55,23 @@ glyphObj.forEach((glyph, index) => {
   }
 });
 
+let index = 0;
 const portalGlyphs = document.querySelectorAll(".glyph-img");
 function chooseGlyph(e) {
   const clickedGlyph = e.target;
   const glyphSrc = e.target.src;
   if (portalAddress.length < 12) {
+    index++;
     const newGlyph = new Image();
+    portalAddress.push({ src: clickedGlyph.src, alt: clickedGlyph.alt });
     newGlyph.src = glyphSrc;
     newGlyph.classList.add("selected");
     chosenGlyphContainer.appendChild(newGlyph);
-    portalAddress.push({ src: clickedGlyph.src, alt: clickedGlyph.alt });
-  } else {
+  }
+  if (index === 12) {
+    index--;
     clickedGlyph.style.cursor = "not-allowed";
-    chosenGlyphContainer.style.setProperty("--none", "block");
+    document.querySelector(".chosen-inside").style.display = "block";
   }
   return portalAddress;
 }
@@ -87,6 +93,40 @@ function getStoredEntries() {
 //~ /////////////////////////////////////
 //!         get from storage add to DOM          \\
 //~ /////////////////////////////////////
+function displayFiveEntries() {
+  const storedEntries = getStoredEntries();
+  storedEntries.forEach((entry) => {
+    // console.log(entry.systemAddress);
+    // storedGlyphs = entry.systemAddress;
+    // storedGlyphs.forEach((glyph) => {});
+    const entryDiv = document.createElement("div");
+    entryDiv.classList.add("stored-entries");
+    entryDiv.innerHTML = `
+          <div class='stored-system-address'>
+            <img class='stored-glyph' src="${entry.systemAddress[0].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[1].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[2].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[3].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[4].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[5].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[6].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[7].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[8].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[9].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[10].src}" alt="" />
+            <img class='stored-glyph' src="${entry.systemAddress[11].src}" alt="" />
+          </div>
+          <p>${entry.systemName}</p>
+          <p>${entry.classification}</p>
+          <p>${entry.stars}</p>
+          <p>${entry.economy}</p>
+          <p>${entry.strength}</p>
+          <p>${entry.species}</p>
+          <p>${entry.notes}</p>
+      `;
+    storedAddresses.appendChild(entryDiv);
+  });
+}
 // function displayExploredDestinations() {
 //   const storedDestinations = getStoredDestinations();
 //   storedDestinations.forEach((destination, index) => {
@@ -118,9 +158,9 @@ function getStrengthValue() {
 }
 
 function getSpeciesValue() {
-   for (let i = 0; i < dominantSpecies.length; i++) {
-     return dominantSpecies[i].value;
-   }
+  for (let i = 0; i < dominantSpecies.length; i++) {
+    return dominantSpecies[i].value;
+  }
 }
 
 //~ /////////////////////////////////////
@@ -174,10 +214,25 @@ portalGlyphs.forEach((glyph) => glyph.addEventListener("click", chooseGlyph));
 
 addBtn.addEventListener("click", handleSubmit);
 
-okBtn.addEventListener("click", () => (modal.style.display = "none"));
-
-plus.addEventListener("click", () => (container.style.display = "flex"));
+okBtn.addEventListener("click", () => {
+  storedAddresses.style.display = 'flex';
+  modal.style.display = "none";
+});
 
 document
   .querySelector(".close-form")
   .addEventListener("click", () => (container.style.display = "none"));
+
+newChildren.forEach((child) => {
+  child.addEventListener("click", () => {
+    container.style.display = "flex";
+    storedAddresses.style.display = 'none';
+
+  });
+});
+
+document
+  .querySelector(".see-entries")
+  .addEventListener("click", displayFiveEntries);
+
+  // window.addEventListener('DOMContentLoaded', displayFiveEntries)
